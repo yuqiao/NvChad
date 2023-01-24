@@ -20,5 +20,7 @@ inoremap <silent><expr> <c-space> coc#refresh()
 ]])
 
 M.mappings = require "custom.mappings"
+M.plugins = require "custom.plugins"
+
 return M
 
