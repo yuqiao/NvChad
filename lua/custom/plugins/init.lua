@@ -7,6 +7,7 @@ return {
     setup = function()
       -- on_file_open("nvim-spectre")
       require("core.lazy_load").on_file_open "nvim-spectre"
+      require("core.lazy_load").on_file_open "indent-blankline.nvim"
     end,
     config = function()
       require("spectre").setup()
@@ -16,7 +17,7 @@ return {
   ["nvim-telescope/telescope-ui-select.nvim"] = {
     after = "telescope.nvim",
     setup = function()
-      require("core.layz_load").on_file_open" telescope-ui-select.nvim"
+      require("core.lazy_load").on_file_open" telescope-ui-select.nvim"
     end,
     config = function()
       require("telescope").load_extension("ui-select")
@@ -27,7 +28,7 @@ return {
       run = "make",
       after = "telescope.nvim",
       setup = function()
-        require("core.layz_load").on_file_open "telescope-fzf-native.nvim"
+        require("core.lazy_load").on_file_open "telescope-fzf-native.nvim"
       end,
       config = function()
         require("telescope").load_extension("fzf")
@@ -43,12 +44,58 @@ return {
       opt = true,
       after = "telescope.nvim",
       setup = function()
-        require("core.layz_load").on_file_open "telescope-env.nvim"
+        require("core.lazy_load").on_file_open "telescope-env.nvim"
       end,
       config = function()
         require("telescope").load_extension("env")
       end,
   },
+
+  ["rcarriga/nvim-notify"] = {
+      opt = true,
+      setup = function()
+        require("core.lazy_load").on_file_open "nvim-notify"
+      end,
+      config = function()
+        require("custom.plugins.config.nvim-notify")
+      end,
+
+  },
+  ["gelguy/wilder.nvim"] = {
+      opt = true,
+      setup = function()
+        require("core.lazy_load").on_file_open "wilder.nvim"
+      end,
+      config = function()
+        require("custom.plugins.config.wilder")
+      end,
+  },
+
+  ["iamcco/markdown-preview.nvim"] = {
+      opt = true,
+      ft = "markdown",
+      run = "cd app && yarn install",
+      config = function()
+        require("custom.plugins.config.markdown-preview")
+      end,
+  },
+
+    -- mackdown 预览插件
+    use({
+      "",
+    })
+    -- mackdown cli 预览插件
+    use({
+      "ellisonleao/glow.nvim",
+      opt = true,
+      ft = "markdown",
+      config = function()
+        require("glow").setup({
+          style = "dark",
+          width = 120,
+        })
+      end,
+    })
 
   -- use 'GustavoKatel/telescope-asynctasks.nvim'
   -- use 'aloussase/telescope-gradle.nvim'
