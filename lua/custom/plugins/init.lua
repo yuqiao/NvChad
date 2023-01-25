@@ -80,22 +80,17 @@ return {
       end,
   },
 
-    -- mackdown 预览插件
-    use({
-      "",
-    })
-    -- mackdown cli 预览插件
-    use({
-      "ellisonleao/glow.nvim",
+  ["jose-elias-alvarez/null-ls.nvim"] = {
       opt = true,
-      ft = "markdown",
-      config = function()
-        require("glow").setup({
-          style = "dark",
-          width = 120,
-        })
+      setup = function()
+        -- on_file_open("null-ls.nvim")
+        require("core.lazy_load").on_file_open "null-ls.nvim"
       end,
-    })
+      config = function()
+        require("custom.plugins.config.null-ls")
+      end,
+      requires = { "nvim-lua/plenary.nvim" },
+  },
 
   -- use 'GustavoKatel/telescope-asynctasks.nvim'
   -- use 'aloussase/telescope-gradle.nvim'

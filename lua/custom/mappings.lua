@@ -9,7 +9,7 @@ M.general = {
     ["<leader>fr"] = {"<ESC>:lua require('spectre').open_visual()<CR>", "replace global"},
   },
   n = {
-    ["<leader>tt"] = {":CocCommand explorer<CR>", "open file exploerer"},
+    ["tt"] = {":CocCommand explorer<CR>", "open file exploerer"},
     ["<leader>ff"] = {":Telescope find_files<CR>", "find files"},
     ["<leader>fg"] = {":Telescope live_grep<CR>", "find global"},
     ["<leader>fr"] = {":lua require('spectre').open_visual({select_word=true})<CR>", "replace global"},
